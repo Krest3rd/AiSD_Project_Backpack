@@ -10,6 +10,20 @@ def BackpackBrute(Capacity: int, Values: list[int], Volume: list[int], Amount: i
 
     :returns: tuple of (max value found, list of tuples of (item value, item volume)) returns only one possible combination
     """
+    if all(type(i) == int for i in Values):
+        return TypeError("Values must be a list of ints")
+    
+    if all(type(i) == int for i in Volume):
+        return TypeError("Volume must be a list of ints")
+
+    if len(Values) != len(Volume):
+        raise ValueError("Values and Volume must be the same length")
+
+    if Amount > len(Values):
+        raise ValueError("Amount cannot be grater then length of Values or Volume")
+    
+    if Amount < 0 or Capacity < 0:
+        raise ValueError("Amount and capacity cannot be negative")
 
     # Checked all items or filled the backpack
     if Amount==0 or Capacity ==0:
