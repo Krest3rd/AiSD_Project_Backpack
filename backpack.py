@@ -41,13 +41,13 @@ def BackpackBrute(Capacity: int, Values: list[int], Volume: list[int]) -> tuple[
         pick = 0
         pick_items = []
 
-        # Pick n-1 item
+        # Pick Amount-1 item
         if Volume[Amount-1] <= Capacity:
             pick, pick_items = BackpackBruteRec(Capacity - Volume[Amount-1], Values, Volume, Amount-1)
             pick += Values[Amount-1]
             pick_items.append((Values[Amount-1],Volume[Amount-1]))
 
-        # Don't pick n-1 item
+        # Don't pick Amount-1 item
         noPick, noPick_items = BackpackBruteRec(Capacity, Values, Volume, Amount-1)
 
         if pick >= noPick:
@@ -124,6 +124,7 @@ def BackpackDP(Capacity: int, Values: list[int], Volume: list[int]) -> tuple[int
     return (Table[-1][-1],SolutionFromTable(Table))
 
 
+# Example usage
 if __name__ == "__main__":
     print(BackpackBrute(3, [1,2,3,4,5], [5,4,3,2,1]))
     print(BackpackDP(3, [1,2,3,4,5], [5,4,3,2,1]))
