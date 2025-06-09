@@ -1,6 +1,6 @@
 
 default_length = 42
-default_pattern = "="
+default_pattern = "-"
 
 def line(pattern=default_pattern,length=default_length):
     line = (pattern * length)[:length]
