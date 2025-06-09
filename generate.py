@@ -1,4 +1,5 @@
 from random import randint
+from invalid import invalid_integer
 
 def generate_backpack_inputs(mode: str, fixed_value: int, start: int, end: int, step: int) -> None:
     """
@@ -51,7 +52,7 @@ def generate_input():
             step = int(input("step>"))
             break
         except TypeError:
-            print("Values must be integers")
+            invalid_integer()
             continue
     generate_backpack_inputs(constant,value,start,end,step)
 

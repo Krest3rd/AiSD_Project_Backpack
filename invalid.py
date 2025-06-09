@@ -2,8 +2,10 @@ import sys
 from decorations import header, footer, line, print_text_multiline
 
 def invalid_usage():
-    header("Correct usage: ./plik np. ./main.py", pattern="-",length=60)
+    header("Correct usage: ./file", pattern="-")
     sys.exit(1)
+def invalid_integer():
+    header("Values must be integers", pattern="-")
 
 def invalid_command():
     header("INVALID COMMAND", pattern="-", length=43)
