@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 import sys
 import menu
+from invalid import invalid_usage
 
 def main():
     if len(sys.argv) > 1:
-        print("Usage: python main.py")
+        invalid_usage()
         sys.exit(1)
     menu.run()
 

@@ -1,5 +1,5 @@
 import sys
-from decoration import header, footer, line, print_text_multiline
+from decorations import header, footer, line, print_text_multiline
 
 def invalid_usage():
     header("Correct usage: ./plik np. ./main.py", pattern="-",length=60)
