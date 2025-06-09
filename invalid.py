@@ -4,6 +4,9 @@ from decorations import header, footer, line, print_text_multiline
 def invalid_usage():
     header("Correct usage: ./file", pattern="-")
     sys.exit(1)
+def invalid_constant():
+    header("Allowed inputs: 'constant' or 'amount'")
+
 def invalid_integer(what):
     header(f"{what} must be positive integer", pattern="-")
 
