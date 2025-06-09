@@ -9,7 +9,7 @@ def invalid_integer(what):
 
 def invalid_command():
     header("INVALID COMMAND", pattern="-", length=43)
-    print_text_multiline("Invalid choice. \nEnter 'brute-force' or 'bf' for brute-force method.\nOr Enter'dynamic-programming or 'dp' for dynamic programming method.", width=43)
+    print_text_multiline("Invalid choice. Enter 'brute-force' or 'bf' for brute-force method. Or Enter 'dynamic-programming' or 'dp' for dynamic programming method.", width=43)
     footer("-",length=43)
 
 def invalid_eof():
