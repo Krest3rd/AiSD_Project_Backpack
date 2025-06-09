@@ -41,7 +41,7 @@ def run():
             invalid_keyboard_interrupt()
             return
 
-    # Generate random items
+    # item generation
     values = [random.randint(1, 100) for _ in range(n)]
     volumes = [random.randint(1, capacity) for _ in range(n)]
 
@@ -51,7 +51,7 @@ def run():
         print(f"Item {i}: value={p}, volume={w}")
     footer()
 
-    # Choose solution method
+    # method selection
     while True:
         try:
             choice = input("Choose method \n\tbrute-force (or 'bf')\n\tdynamic-programming (or 'dp')\nmethod> ").strip().lower()
@@ -65,8 +65,7 @@ def run():
             break
         invalid_command()
         
-
-    # Solve and measure time
+    #timing
     if choice == "brute-force" or choice == "bf":
         header("Brute Force Solution:")
         t0 = process_time()
