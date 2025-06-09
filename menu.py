@@ -27,7 +27,7 @@ def run():
     # Prompt for number of items
     while True:
         try:
-            n = int(input("Enter number of items n:\n n> "))
+            n = int(input("Enter number of items n:\nnumber> "))
             if n <= 0:
                 invalid_integer(what="Number of items")
                 continue
@@ -80,4 +80,4 @@ def run():
         solution = BackpackDP(capacity, values, volumes)
         t = process_time() - t0
         printSolution(solution)
-        header(f"Computation time (dynamic programming): {t:.6f} seconds",length=70)
+        header(f"Computation time (dynamic programming): {t:.6f} seconds",length=64)
