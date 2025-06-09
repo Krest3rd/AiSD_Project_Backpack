@@ -1,4 +1,5 @@
-import random
+import os
+from generate import generate_backpack_inputs
 from backpack import BackpackBrute, BackpackDP
 from help import printSolution
 from time import process_time
@@ -41,12 +42,26 @@ def run():
             invalid_keyboard_interrupt()
             return
 
-    # item generation
-    values = [random.randint(1, 100) for _ in range(n)]
-    volumes = [random.randint(1, capacity) for _ in range(n)]
+ 
+    # Generate and write input file
+    os.makedirs("input", exist_ok=True)
+    generate_backpack_inputs("capacity", capacity, n, n, 1)
+    filename = f"./input/backpack_{n:07}.txt"
+    header(f"Input data written to {filename}")
 
-    # Display generated items
-    header("Generated items:")
+    # Read input data from file
+    with open(filename) as f:
+        data = f.read().strip().split()
+    it = iter(data)
+    file_capacity = int(next(it))
+    file_n = int(next(it))
+    values, volumes = [], []
+    for _ in range(file_n):
+        p = int(next(it)); w = int(next(it))
+        values.append(p); volumes.append(w)
+
+    # Display loaded items
+    header("Loaded items from file:")
     for i, (p, w) in enumerate(zip(values, volumes), start=1):
         print(f"Item {i}: value={p}, volume={w}")
     footer()
