@@ -52,7 +52,7 @@ def generate_input():
             step = int(input("step>"))
             break
         except TypeError:
-            invalid_integer()
+            invalid_integer(what="Values")
             continue
     generate_backpack_inputs(constant,value,start,end,step)
 
