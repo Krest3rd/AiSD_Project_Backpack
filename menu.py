@@ -2,7 +2,7 @@ import random
 from backpack import BackpackBrute, BackpackDP
 from help import printSolution
 from time import process_time
-from invalid import invalid_integer, invalid_command
+from invalid import invalid_integer, invalid_command, invalid_eof, invalid_keyboard_interrupt
 from decorations import header, footer
 
 def run():
@@ -17,6 +17,12 @@ def run():
         except ValueError:
             invalid_integer(what="Capacity")
             return
+        except EOFError:
+            invalid_eof()
+            return
+        except KeyboardInterrupt:
+            invalid_keyboard_interrupt()
+            return
 
     # Prompt for number of items
     while True:
@@ -28,6 +34,12 @@ def run():
             break
         except ValueError:
             invalid_integer(what="Number of items")
+        except EOFError:
+            invalid_eof()
+            return
+        except KeyboardInterrupt:
+            invalid_keyboard_interrupt()
+            return
 
     # Generate random items
     values = [random.randint(1, 100) for _ in range(n)]
@@ -41,10 +53,18 @@ def run():
 
     # Choose solution method
     while True:
-        choice = input("Choose method \n\tbrute-force (or 'bf')\n\tdynamic-programming (or 'dp)\nmethod> ").strip().lower()
+        try:
+            choice = input("Choose method \n\tbrute-force (or 'bf')\n\tdynamic-programming (or 'dp')\nmethod> ").strip().lower()
+        except EOFError:
+            invalid_eof()
+            return
+        except KeyboardInterrupt:
+            invalid_keyboard_interrupt()
+            return
         if choice in ("brute-force","bf","dynamic-programming", "dp"):
             break
         invalid_command()
+        
 
     # Solve and measure time
     if choice == "brute-force" or choice == "bf":
