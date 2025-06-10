@@ -4,10 +4,13 @@ import menu
 from invalid import invalid_usage
 
 def main():
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 2 or (len(sys.argv) == 2 and sys.argv[1] not in ("--user", "--file")):
         invalid_usage()
         sys.exit(1)
-    menu.run()
+    if sys.argv[1] == "--user":
+        menu.run("user")
+    elif sys.argv[1] == "--file":
+        menu.run("file")
 
 if __name__ == "__main__":
     main()
