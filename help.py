@@ -25,8 +25,6 @@ def benchmark(func: Callable, args: tuple) -> None:
 
     return end - start
 
-    
-
 
 if __name__=="__main__":
     header(f"Execution time: {benchmark(printSolution,(1249,[(14,2), (1235,1)]))}",pattern="-",length=50)
